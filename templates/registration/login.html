@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<header>
+    {% include 'Menu.html' %}
+</header>
+<body>
+    <h1>Авторизация</h1>
+    <form action="/login/" method="POST" >
+        {% csrf_token %}
+        {{ form.username.label_tag }} {{ form.username }}<br>
+        {{ form.password.label_tag }} {{ form.password }}<br>
+        <input type="submit" value="Авторизироваться">
+    </form>
+
+    {%if errors%}
+    <hr>
+    {{ errors }}
+    <hr>
+    {% endif %}
+</body>
+<footer>
+    {% include 'Footer.html' %}
+</footer>
+</html>
