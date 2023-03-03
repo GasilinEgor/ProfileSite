@@ -21,6 +21,11 @@ def Login(request):
     return redirect('index')
 
 
+def Logout(request):
+    logout(request)
+    return render(request, 'index.html', {})
+
+
 def profile(request, name):
     try:
         user = User.objects.get(username=name)

@@ -2,6 +2,16 @@
 <html lang="en">
 <body>
 <h1>Меня для всех страниц</h1>
-<h2><a href="/">Главная страница</a> <a href="/login">Регистрация</a></h2>
+{% if user.is_authenticated %}
+    <h2>
+        <a href="/">Главная страница</a>
+        <a href="/logout">Выйти</a>
+    </h2>
+{% else %}
+    <h2>
+        <a href="/">Главная страница</a>
+        <a href="/login">Регистрация</a>
+    </h2>
+{% endif %}
 </body>
 </html>
