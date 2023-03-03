@@ -9,7 +9,9 @@ from main.models import News
 
 
 def IndexPage(request):
-    return render(request, 'index.html', {})
+    data = News.objects.all()
+    context = {'News': data}
+    return render(request, 'index.html', context)
 
 
 def Login(request):
