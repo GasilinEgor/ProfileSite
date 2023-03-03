@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание новости</title>
+</head>
+<header>
+    {% include 'Menu.html' %}
+</header>
+<body>
+<h1>Создание новости</h1>
+<form action="/AddNews/" method="post">
+    {% csrf_token %}
+    {{ form.Author.label }} {{ form.Author }}<br>
+    {{ form.Main.label }} {{ form.Main }}<br>
+    {{ form.Text.label }} {{ form.Text }}<br>
+    {{ form.Tegs.label }} {{ form.Tegs }}<br>
+    <input type="submit" value="Добавить">
+</form>
+{% if nothing_entered %}
+    <p>Новость не создана!</p>
+{% else %}
+    {% if form.errors %}
+        <p>Найдены ошибки:</p>
+        {% for key, value in form.errors.items %}
+            <li>Поле {{ key|escape }}:{{ value|escape }}</li>
+        {% endfor %}
+    {% else %}
+        <p>Новость успешно создана!</p>
+    {% endif %}
+{% endif %}
+</body>
+<footer>
+    {% include 'Footer.html' %}
+</footer>
+</html>
