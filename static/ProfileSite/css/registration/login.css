@@ -1,0 +1,52 @@
+h1 {
+    width: 100%;
+    text-align: center;
+    color: #0969A2;
+    font-size: 24px;
+    font-family: Arial;
+}
+
+
+footer {
+    border-top: 2px solid #3D9AD1;
+    border-bottom: 2px solid #3D9AD1;
+}
+
+
+form {
+    width: 100%;
+    text-align: center;
+}
+
+label {
+    font-size: 16px;
+    font-family: Arial;
+    color: #3D9AD1;
+}
+
+input {
+    border: 2px solid #0969A2;
+    border-radius: 5px;
+    width: 200px;
+    height: 20px;
+    margin: 5px 0px 5px 0px;
+}
+
+
+.authinput {
+    background-color: white;
+    border: 2px solid #0969A2;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: Arial;
+    color: #3D9AD1;
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+}
+
+
+footer {
+    border-top: 2px solid #3D9AD1;
+    border-bottom: 2px solid #3D9AD1;
+}
