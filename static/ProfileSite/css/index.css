@@ -1,0 +1,13 @@
+.MainText {
+    width: 100%;
+    text-align: center;
+    color: #0969A2;
+    font-size: 24px;
+    font-family: Arial;
+}
+
+
+footer {
+    border-top: 2px solid #3D9AD1;
+    border-bottom: 2px solid #3D9AD1;
+}
