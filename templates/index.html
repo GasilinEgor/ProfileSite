@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "ProfileSite/css/index.css"%}">
     <meta charset="UTF-8">
     <title>Главная страница</title>
 </head>
 <header>
-    {% include "Menu.html" %}
+    <div>
+        {% include "Menu.html" %}
+    </div>
 </header>
 <body>
- <h2>Добро пожаловать на главную страницу!</h2>
+ <h2 class="MainText">Добро пожаловать на главную страницу!</h2>
 {% include 'NewsList.html' %}
 </body>
 <footer>

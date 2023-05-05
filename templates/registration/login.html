@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Авторизация</title>
+    {% load static %}
+    <link rel="stylesheet" href= "{% static "ProfileSite/css/registration/login.css" %}">
 </head>
 <header>
     {% include 'Menu.html' %}
 </header>
 <body>
     <h1>Авторизация</h1>
-    <form action="/login/" method="POST" >
+    <form action="/login/" method="POST">
         {% csrf_token %}
         {{ form.username.label_tag }} {{ form.username }}<br>
         {{ form.password.label_tag }} {{ form.password }}<br>
-        <input type="submit" value="Авторизироваться">
+        <input type="submit" value="Авторизироваться" class="authinput">
     </form>
 
     {%if errors%}

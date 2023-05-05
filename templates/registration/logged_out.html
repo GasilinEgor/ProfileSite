@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Деавторизация</title>
+    <title>Выход из аккаунта</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "ProfileSite/css/registration/logged_out.css" %}">
 </head>
 <header>
     {% include 'Menu.html' %}
 </header>
 <body>
-<p>Вы вышли из аккаунта</p>
+<p class="mes">Вы успешно вышли из аккаунта! Возращайте скорее :)</p>
 </body>
 <footer>
     {% include 'Footer.html' %}

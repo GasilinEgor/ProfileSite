@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static "ProfileSite/css/Menu.css"%}">
+<link rel="script" href="{% static 'ProfileSite/js/Menu.js' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
+<style>
+</style>
 <body>
-<h1>Меня для всех страниц</h1>
+<div>
+    <button id="myButton" class="menuButton"><i class="fa-solid fa-bars" style="color: white; font-size: 30px"></i></button>
+</div>
+<div class="menu" id="myDiv" style="position: absolute; left: -250px">
+<h1 class="main">Меню</h1>
 {% if user.is_authenticated %}
-    <h2>
-        <a href="/">Главная страница</a>
-        <a href="/AddNews">Добавить новость</a>
-        <a href="/logout">Выйти</a>
+    <h2 style="margin: 0px 0px 20px 0px">
+        <a href="/" class="buttom">Главная страница</a>
+        <a href="/AddNews" class="buttom">Добавить новость</a>
+        <a href="/logout" class="buttom">Выйти</a>
     </h2>
 {% else %}
-    <h2>
-        <a href="/">Главная страница</a>
-        <a href="/login">Регистрация</a>
+    <h2 style="margin: 0px 0px 20px 0px">
+        <a href="/" class="buttom">Главная страница</a>
+        <a href="/login" class="buttom">Регистрация</a>
     </h2>
 {% endif %}
+</div>
+<script>
+    var button = document.getElementById("myButton");
+    var div = document.getElementById("myDiv");
+
+    button.onclick = function() {
+      if (div.style.left === "-250px") {
+        div.style.left = "0";
+      } else {
+        div.style.left = "-250px";
+      }
+    };
+  </script>
 </body>
 </html>

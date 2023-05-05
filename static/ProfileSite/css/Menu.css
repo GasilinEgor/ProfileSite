@@ -27,20 +27,6 @@
 }
 
 
-h3 {
-    color: white;
-    font-family: Arial;
-    font-size: 26px;
-    display: inline-block;
-    text-decoration: none;
-    padding: 15px 20px;
-    margin: 10px 0px;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-text-stroke: 1px #0969A2;
-}
-
-
 .main {
     color: white;
     width: 250px;
