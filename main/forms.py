@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
+from .models import AccountInformation
 
 '''Класс - форма для ввода логина и пароля'''
 
@@ -143,3 +144,21 @@ class AddAccountForm(forms.Form):
               ('Ученик', 'Ученик')]
 
     Groupe = forms.ChoiceField(choices=Choise, widget=forms.RadioSelect, label='Учитель или ученик')
+
+
+class MakeKlasses(forms.Form):
+    Name = forms.CharField(
+        label='Наазвание группы',
+        max_length=20,
+        min_length=0,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Название группы',
+                   }
+        )
+    )
+
+    Pupils = forms.ModelMultipleChoiceField(
+        queryset=AccountInformation.objects.filter(Grope='Ученик'),
+        widget=forms.CheckboxSelectMultiple
+    )

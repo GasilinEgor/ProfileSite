@@ -17,3 +17,9 @@ class AccountInformation(models.Model):
     Patronymic = models.CharField(max_length=100)
     DateOfBirth = models.DateField()
     Grope = models.CharField(max_length=255, default='none')
+
+
+class Klass(models.Model):
+    name = models.CharField(max_length=20)
+    count = models.IntegerField()
+    Pupils = models.ManyToManyField(AccountInformation)

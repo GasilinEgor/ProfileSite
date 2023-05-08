@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, Group
 from django.http import Http404
 from django.shortcuts import render, redirect
 
-from main.forms import LoginForm, AddNewsForm, AddAccountForm
+from main.forms import LoginForm, AddNewsForm, AddAccountForm, MakeKlasses
 from main.models import News, AccountInformation
 
 
@@ -113,3 +113,11 @@ def AddAccount(request):
 def AdRedact(request):
     context = {'message': 'Выберите, что хотите отредактировать'}
     return render(request, 'AdminRedactor.html', context)
+
+
+def MakeKlasses(request):
+    context = {}
+    if request.method == 'POST':
+        NewKlass = MakeKlasses(request.POST)
+        if NewKlass.is_valid():
+            pass
