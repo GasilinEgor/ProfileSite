@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Личная информация</title>
+    {% load static %}
 </head>
+<header>
+    <div>
+        {% include "Menu.html" %}
+    </div>
+</header>
 <body>
-
+    <div>
+        <h1>Информация о пользователе</h1>
+    </div>
+    <div>
+        <p>Фото</p><br><img src="{% static 'images/image.png' %}">
+        <p>Логин<br>{{ information.Login }}</p>
+        <p>Имя<br>{{ information.Name }}</p>
+        <p>Фамилия<br>{{ information.Surname }}</p>
+        <p>Дата рождения<br>{{ information.SDateOfBirth }}</p>
+        <p>Возраст<br>{{ information.Ages }}</p>
+    </div>
 </body>
+<footer>
+    {% include "Footer.html" %}
+</footer>
 </html>

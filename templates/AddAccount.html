@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление аккаунта</title>
+</head>
+<header>
+    {% include 'Menu.html' %}
+</header>
+<body>
+<h2>Заполните формы, чтобы добавить аккаунт</h2>
+<form action="/redact/addaccount/" method="post">
+    {% csrf_token %}
+    {{ form.Login.label }} {{ form.Login }}<br>
+    {{ form.Password.label }} {{ form.Password }}<br>
+    {{ form.Name.label }} {{ form.Name }}<br>
+    {{ form.Surname.label }} {{ form.Surname }}<br>
+    {{ form.Patronymic.label }} {{ form.Patronymic }}<br>
+    {{ form.DateOfBirth.label }} {{ form.DateOfBirth }}<br>
+    {{ form.Groupe.label }} {{ form.Groupe }}<br>
+    <input type="submit" value="Добавить">
+</form>
+{% if nothing_entered %}
+    <p></p>
+{% else %}
+    {% if form.errors %}
+        <p>Найдены ошибки при заполнении:</p>
+        {% for key, value in form.errors.items %}
+            <li>Поле {{ key|escape }}:{{ value|escape }}</li>
+        {% endfor %}
+    {% else %}
+        <p>{{ message }}</p>
+    {% endif %}
+{% endif %}
+</body>
+<footer>
+    {% include 'Footer.html' %}
+</footer>
+</html>

@@ -69,3 +69,77 @@ class AddNewsForm(forms.Form):
             }
         )
     )
+
+
+class AddAccountForm(forms.Form):
+    Login = forms.CharField(
+        label='Логин',
+        max_length=20,
+        min_length=0,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Логин',
+            }
+        )
+    )
+
+    Password = forms.CharField(
+        label='Пароль',
+        max_length=40,
+        min_length=0,
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Пароль'
+                   }
+        )
+    )
+
+    Name = forms.CharField(
+        label='Имя',
+        max_length=20,
+        min_length=0,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Имя'
+                   }
+        )
+    )
+
+    Surname = forms.CharField(
+        label='Фамилия',
+        max_length=100,
+        min_length=0,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Фамилия'
+                   }
+        )
+    )
+
+    Patronymic = forms.CharField(
+        label='Отчество',
+        max_length=100,
+        min_length=0,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Отчество'
+                   }
+        )
+    )
+
+    DateOfBirth = forms.DateField(
+        label='Дата рождения',
+        widget=forms.DateInput(
+            attrs={'placeholder': 'Дата рождения',
+                   'type': 'date'
+                   },
+            format=['%d.%m.%Y']
+        )
+    )
+
+    Choise = [('Учитель', 'Учитель'),
+              ('Ученик', 'Ученик')]
+
+    Groupe = forms.ChoiceField(choices=Choise, widget=forms.RadioSelect, label='Учитель или ученик')
