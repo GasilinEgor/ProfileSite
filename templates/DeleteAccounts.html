@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Создание групп</title>
+    <title>Удаление аккаунта</title>
 </head>
 <header>
     {% include 'Menu.html' %}
 </header>
 <body>
-<h2>Заполните форму для создания группы/класса</h2>
-<form action="/redact/addklass/" method="POST">
+<h2>Выберите аккаунты, которые хотите удалить</h2>
+<form action="/redact/deleteaccounts/" method="POST">
     {% csrf_token %}
-    {{ form.Name.label }} {{ form.Name }}<br>
     {{ form.pupils }}
-    <input type="submit" value="Создать">
+    <input type="submit" value="Удалить">
 </form>
 {%  if nothing_entered %}
     <p></p>

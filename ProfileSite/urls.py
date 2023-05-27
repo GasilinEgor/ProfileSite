@@ -26,5 +26,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('profile/<str:name>', views.profile, name='profile'),
     path('redact/', views.AdRedact),
-    path('redact/addaccount/', views.AddAccount)
+    path('redact/addaccount/', views.AddAccount),
+    path('redact/addklass/', views.NewKlasses),
+    path('redact/deleteaccounts/', views.deleting),
 ]

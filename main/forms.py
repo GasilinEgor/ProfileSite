@@ -1,7 +1,34 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
-from .models import AccountInformation
+from main.models import AccountInformation
+
+
+def load():
+    AccountInformation.objects.update()
+    Pupils = AccountInformation.objects.filter(Grope='Ученик')
+    Names = Pupils.values_list('Name', flat=True)
+    Surnames = Pupils.values_list('Surname', flat=True)
+    Patrinymics = Pupils.values_list("Patronymic", flat=True)
+    Usernames = Pupils.values_list('Login', flat=True)
+    pupils_list = []
+    for i in range(len(Names)):
+        pupils_list.append((f'Ученик_{i}', f'{Usernames[i]} {Names[i]} {Surnames[i]} {Patrinymics[i]}'))
+    return pupils_list
+
+
+def all_load():
+    AccountInformation.objects.update()
+    Pupils = AccountInformation.objects.all()
+    Names = Pupils.values_list('Name', flat=True)
+    Surnames = Pupils.values_list('Surname', flat=True)
+    Patrinymics = Pupils.values_list("Patronymic", flat=True)
+    Usernames = Pupils.values_list('Login', flat=True)
+    pupils_list = []
+    for i in range(len(Names)):
+        pupils_list.append((f'Ученик_{i}', f'{Usernames[i]} {Names[i]} {Surnames[i]} {Patrinymics[i]}'))
+    return pupils_list
+
 
 '''Класс - форма для ввода логина и пароля'''
 
@@ -158,7 +185,14 @@ class MakeKlasses(forms.Form):
         )
     )
 
-    Pupils = forms.ModelMultipleChoiceField(
-        queryset=AccountInformation.objects.filter(Grope='Ученик'),
-        widget=forms.CheckboxSelectMultiple
-    )
+    pupils = forms.MultipleChoiceField(choices=load(), required=False, widget=forms.CheckboxSelectMultiple)
+
+    def set_choices(self, arr):
+        self.fields['pupils'].choices = arr
+
+
+class DeleteAccounts(forms.Form):
+    pupils = forms.MultipleChoiceField(choices=all_load(), required=False, widget=forms.CheckboxSelectMultiple)
+
+    def set_choices(self, arr):
+        self.fields['pupils'].choices = arr
