@@ -81,9 +81,9 @@ class AddNewsForm(forms.Form):
         label='Основной текст',
         max_length=2000,
         min_length=0,
-        widget=forms.TextInput(
+        widget=forms.Textarea(
             attrs={
-                'class': 'form-control'
+                'class': 'main_text'
             }
         )
     )

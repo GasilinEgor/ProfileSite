@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Создание новости</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "ProfileSite/css/AddNews.css" %}">
 </head>
 <header>
     {% include 'Menu.html' %}
 </header>
 <body>
-<h1>Создание новости</h1>
+<h1 class="add_news_head">Создание новости</h1>
+<div>
 <form action="/AddNews/" method="post">
     {% csrf_token %}
-    {{ form.Author.label }} {{ form.Author }}<br>
-    {{ form.Main.label }} {{ form.Main }}<br>
-    {{ form.Text.label }} {{ form.Text }}<br>
-    {{ form.Tegs.label }} {{ form.Tegs }}<br>
-    <input type="submit" value="Добавить новость">
+    <div class="div_input">
+        {{ form.Author.label_tag }} <br> {{ form.Author }}<br>
+    </div>
+    <div class="div_input">
+        {{ form.Main.label_tag }} <br> {{ form.Main }}<br>
+    </div>
+    <div class="div_input">
+        {{ form.Text.label_tag }} <br> {{ form.Text }}<br>
+    </div>
+    <div class="div_input">
+        {{ form.Tegs.label_tag }} <br> {{ form.Tegs }}<br>
+    </div>
+    <input type="submit" value="Добавить новость" class="buttom_input">
 </form>
+</div>
 {% if nothing_entered %}
     <p>Новость не создана!</p>
 {% else %}
