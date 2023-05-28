@@ -124,13 +124,10 @@ def NewKlasses(request):
         if NewKlass.is_valid():
             select = NewKlass.cleaned_data['pupils']
             pupils = load()
-            objects_pupils = []
-            for i in range(len(pupils)):
-                pupils[i] = pupils[i][1].split()
             klass = Klass.objects.create(name=NewKlass.data['Name'], count=len(select))
             for i in range(len(select)):
-                select[i] = select[i].split('_')[1]
-                klass.Pupils.add(AccountInformation.objects.filter(Login=pupils[int(select[i])][0], Name=pupils[int(select[i])][1], Surname=pupils[int(select[i])][2], Patronymic=pupils[int(select[i])][3]).first())
+                s = pupils[select[i]].split()
+                klass.Pupils.add(AccountInformation.objects.filter(Login=s[0], Name=s[1], Surname=s[2], Patronymic=s[3]).first())
             klass.save()
             context['message'] = "Класс успешно создан!"
             context['form'] = MakeKlasses()
