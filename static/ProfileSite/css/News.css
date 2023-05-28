@@ -1,0 +1,42 @@
+.news {
+    font-family: Arial;
+    height: 100%;
+    width: 560px;
+    margin: 20px;
+}
+
+.news_head {
+    font-size: 24px;
+    font-family: Arial;
+    color: #ed7d31;
+    margin: 20px;
+}
+
+
+.body {
+    border: #ed7d31 solid 1px;
+    border-radius: 5px;
+    height: 100%;
+    width: 600px;
+    margin: 20px;
+}
+
+h2 {
+    color: #3896b3;
+    font-size: 18px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.aut_and_date {
+    text-align: end;
+    color:  #39b4e1;
+}
+
+
+.tegs {
+    font-weight: bold;
+}
+

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static "ProfileSite/css/News.css" %}">
 <body>
-    <h2>Новости</h2>
+    <h2 class="news_head">Новости</h2>
+    <div class="body">
         {% for new in News %}
-            <div>
-                <h4>{{ new.Date }}</h4>
-                <h3>{{ new.Author }}</h3>
+            <div class="news">
                 <h2>{{ new.Main }}</h2>
                 <p>{{ new.Text }}</p>
-                <p>{{ new.Tegs }}</p>
+                <p class="tegs">{{ new.Tegs }}</p>
+                <p class="aut_and_date">{{ new.Author }}, {{ new.Date }}</p>
             </div>
         {% endfor %}
+    </div>
 </body>
 </html>
