@@ -93,10 +93,13 @@ a {
 
 .menuButton:hover {
     background-color: white;
-    color: #39b4e1;
-    transition: 0.6s;
+    transition: 0.4s;
 }
 
+
+.menuButton:hover {
+    color: #39b4e1;
+}
 
 .menuButton:active {
     background-color: #39b4e1;

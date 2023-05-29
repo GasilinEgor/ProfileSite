@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Изменение данных</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "ProfileSite/css/AdminRedactor/AdminRedactor.css" %}">
 </head>
-<header>
+<header style="z-index: 1">
     {% include 'Menu.html' %}
 </header>
 <body>
-    <h2>{{ message }}</h2>
-    <a href="addaccount/">Добавить аккаунт</a><br>
-    <a href="addklass/">Создать группу</a><br>
-    <a href="deleteaccounts/">Удалить аккаунты</a><br>
+    <h2 class="admin_redactor_head">{{ message }}</h2>
+    <div class="admin_redactor_buttom">
+        <a href="addaccount/" class="ad_a">Добавить аккаунт</a><br>
+    </div>
+    <div class="admin_redactor_buttom">
+        <a href="addklass/" class="ad_a">Создать группу</a><br>
+    </div>
+    <div class="admin_redactor_buttom">
+        <a href="deleteaccounts/" class="ad_a">Удалить аккаунты</a><br>
+    </div>
 </body>
 <footer>
     {% include 'Footer.html' %}

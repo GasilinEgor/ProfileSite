@@ -42,7 +42,7 @@ input {
     border-radius: 10px;
     font-size: 16px;
     font-family: Arial;
-    color: #39b4e1;
+    color: #ed7d31;
     width: 200px;
     height: 40px;
     font-weight: bold;
@@ -52,16 +52,20 @@ input {
 
 
 .buttom_input:hover {
-    color: white;
     background-color: #39b4e1;
     transition: 0.6s;
     border: 2px solid #39b4e1;
 }
 
 
+.buttom_input:hover {
+    color: white;
+}
+
+
 .buttom_input:active {
     background-color: white;
-    color: #39b4e1;
+    color: #ed7d31;
     transition: 0.6s;
     border: 2px solid #3896b3;
 }
